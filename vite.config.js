@@ -9,4 +9,5 @@ export default defineConfig({
     strictPort: true,
     allowedHosts: ['zuma.francecentral.cloudapp.azure.com'],
   },
+  base: '/psychic/'
 })
