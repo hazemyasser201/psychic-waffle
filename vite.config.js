@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     port: 3000,
     strictPort: true,
-    allowedHosts: ['zuma.francecentral.cloudapp.azure.com'],
+    // allowedHosts: ['zuma.francecentral.cloudapp.azure.com'],
   },
-  base: '/psychic/'
+  // base: '/psychic/'
 })
