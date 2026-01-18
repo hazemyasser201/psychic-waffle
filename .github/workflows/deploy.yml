@@ -18,7 +18,7 @@ jobs:
 
     - run: npm install
     - run: npm run build
-    
+
     - uses: appleboy/ssh-action@v1.0.3
       with:
         host: ${{ secrets.VM_HOST }}
@@ -26,7 +26,11 @@ jobs:
         key: ${{ secrets.VM_SSH_KEY }}
         script: |
           sudo rm -rf /var/www/html/*
+          sudo chown -R www-data:www-data /var/www/html
+          sudo chmod -R 755 /var/www/html
           sudo systemctl reload nginx
+
+          
     - uses: appleboy/scp-action@v0.1.7
       with:
         host: ${{ secrets.VM_HOST }}
@@ -34,5 +38,4 @@ jobs:
         key: ${{ secrets.VM_SSH_KEY }}
         source: "dist/*"
         target: "/var/www/html/"
-
 
