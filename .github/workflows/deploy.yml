@@ -25,9 +25,9 @@ jobs:
         host: ${{ secrets.VM_HOST }}
         username: ${{ secrets.VM_USER }}
         key: ${{ secrets.VM_SSH_KEY }}
-        source: "/dist/*"
+        source: "dist/*"
         target: "/tmp/react-build"
-        debug: true
+        # debug: true
         
     - name: Move files to /var/www/html with sudo
       uses: appleboy/ssh-action@v1.0.3
@@ -35,7 +35,7 @@ jobs:
         host: ${{ secrets.VM_HOST }}
         username: ${{ secrets.VM_USER }}
         key: ${{ secrets.VM_SSH_KEY }}
-        debug: true
+        # debug: true
         script: |
           sudo rm -rf /var/www/html/*
           sudo cp -r /tmp/react-build/dist/* /var/www/html/
