@@ -38,7 +38,7 @@ jobs:
         debug: true
         script: |
           sudo rm -rf /var/www/html/*
-          sudo cp -r /tmp/react-build/* /var/www/html/
+          sudo cp -r /tmp/react-build/dist/* /var/www/html/
           sudo chown -R www-data:www-data /var/www/html
           sudo chmod -R 755 /var/www/html
           sudo systemctl reload nginx
